@@ -53,14 +53,14 @@ public class MainActivity extends AppCompatActivity {
         this.mapping();
         this.initialization();
         try {
-            socket = IO.socket("http://192.168.1.205:3000/"); // socket() de cho biet ket noi tu client(android) den server nao (dua vao dia chi cua server), tuong tu nhu phan PHP MySQL thi cung khong the de dia chi server la localhost
+            socket = IO.socket("http://192.168.1.87:3000/"); // socket() de cho biet ket noi tu client(android) den server nao (dua vao dia chi cua server), tuong tu nhu phan PHP MySQL thi cung khong the de dia chi server la localhost
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
         socket.connect(); // de ket noi socket (thuc hien ket noi tu client den server theo duong dan uri da cung cap phia tren)
 //        socket.emit("client-send-data", "Hoang Nguyen Quang Linh"); // socket.emit() de phat ra mot event tac dong den duy nhat server, 2 tham so la event name va gia tri muon gui di
 //        socket.on("server-send-data", onRetrieveData); // lang nghe su kien gui ve tu server, tham so Listener fn (onRetrieveData) la 1 cai ham kieu Emitter.Listener, khi nao server emit ve dung cai event "server-send-data" nhu da cung cap thi onRetrieveData moi chay
-        socket.on("server-send-result", onRetrieveResult); // client nhan ket qua ve viec dang ky tu erver
+        socket.on("server-send-result", onRetrieveResult); // client nhan ket qua ve viec dang ky tu server
         imageButtonAddUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
